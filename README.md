@@ -6,6 +6,7 @@ Shosetsu extension for reading [The Deathworlders](https://deathworlders.com/boo
 ## Usage
 
 Add `https://oneautumnmango.github.io/deathworlders-extension/` as a repository in Shosetsu.
+Download the `Deathworlders` extension.
 
 ## Testing
 

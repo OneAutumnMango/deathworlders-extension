@@ -1,0 +1,9 @@
+_doc.lua
+doc.js
+
+.idea/
+node_modules/
+
+index.schema.json
+
+extension-tester.jar

@@ -1,0 +1,27 @@
+{
+  "authors": [
+    {
+      "id": 0,
+      "name": "",
+      "desc": "Worked on Deathworlders",
+      "imageURL": "",
+      "website": ""
+    }
+  ],
+  "libraries": [],
+  "scripts": [
+    {
+      "id": 1,
+      "name": "Deathworlders",
+      "fileName": "Deathworlders",
+      "imageURL": "https://deathworlders.com/images/vemik.jpg",
+      "lang": "eng",
+      "ver": "1.0.0",
+      "libVer": "1.0.0",
+      "md5": "4aba6903c1dd04425b15cd2bf90cad03479f1bdb0c7e8f9a2bf9d525aa962a0a",
+      "type": "LuaScript"
+    }
+  ],
+  "styles": [],
+  "js": []
+}

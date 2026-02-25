@@ -1,0 +1,72 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["master", "main"]
+  workflow_dispatch:
+  pull_request:
+    branches: ["master", "main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Generate Deltas
+        run: |
+          if [ -z "$GITHUB_BASE_REF" ]; then
+            export FILES=$(git diff-tree --no-commit-id --name-only -r $GITHUB_SHA | grep '^src/.*\.lua$')
+          else
+            git fetch origin $GITHUB_BASE_REF
+            export FILES=$(git diff --name-only $GITHUB_BASE_REF...$GITHUB_SHA | grep '^src/.*\.lua$')
+          fi
+          echo "FILES=$FILES" >> $GITHUB_ENV
+      - name: Download Tester
+        run: ./dev-setup.sh --tester
+      - name: Validate Index
+        run: |
+          java -jar bin/extension-tester.jar --ci --generate-index
+          DELTA=$(git diff --minimal -- index.json)
+          if [ ! -z "$DELTA" ]; then echo "Index file is not up to date: $DELTA"; exit 1; fi
+      - name: Validate Metadata
+        run: 'if [ ! -z "$FILES" ]; then java -jar bin/extension-tester.jar --ci --validate-metadata "${FILES[@]}"; fi'
+      - name: Run Tests
+        run: 'if [ ! -z "$FILES" ]; then java -jar bin/extension-tester.jar --ci "${FILES[@]}"; fi'
+      - name: Prepare Pages
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir public
+          [ -d src ] && cp -r src public/
+          [ -d lib ] && cp -r lib public/
+          [ -d icons ] && cp -r icons public/
+          cp index.json public/
+      - name: Setup Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'public'
+      - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
+        id: deployment
+        uses: actions/deploy-pages@v4

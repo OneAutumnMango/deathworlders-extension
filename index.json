@@ -1,10 +1,11 @@
 {
   "authors": [
     {
-      "id": 1739182405,
+      "id": -1615196038,
       "name": "Philip R. Johnson (Hambone)",
-      "desc": "Author of The Deathworlders",
-      "website": "https://deathworlders.com"
+      "desc": "Worked on Deathworlders",
+      "imageURL": "",
+      "website": ""
     }
   ],
   "libraries": [],
@@ -17,7 +18,7 @@
       "lang": "eng",
       "ver": "1.0.0",
       "libVer": "1.0.0",
-      "md5": "f7396973a38a28d2b2401b0704a3c1e40519aea80c0f4bd9310b02bd7ec3e3e3",
+      "md5": "81f0233a6973ec7346cd2c684b956627254437a796052f8e795326621361b8f0",
       "type": "LuaScript"
     }
   ],

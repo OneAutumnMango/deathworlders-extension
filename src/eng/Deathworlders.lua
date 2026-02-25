@@ -46,7 +46,7 @@ return {
 	listings = {
 		Listing("Main", false, function()
 			return {
-				NovelInfo {
+				Novel {
 					title = "The Deathworlders",
 					link = "books/deathworlders/",
 					imageURL = "https://deathworlders.com/images/vemik.jpg"

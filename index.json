@@ -1,24 +1,23 @@
 {
   "authors": [
     {
-      "id": 0,
-      "name": "",
-      "desc": "Worked on Deathworlders",
-      "imageURL": "",
-      "website": ""
+      "id": 1739182405,
+      "name": "Philip R. Johnson (Hambone)",
+      "desc": "Author of The Deathworlders",
+      "website": "https://deathworlders.com"
     }
   ],
   "libraries": [],
   "scripts": [
     {
-      "id": 1,
+      "id": 1284917360,
       "name": "Deathworlders",
       "fileName": "Deathworlders",
       "imageURL": "https://deathworlders.com/images/vemik.jpg",
       "lang": "eng",
       "ver": "1.0.0",
       "libVer": "1.0.0",
-      "md5": "4aba6903c1dd04425b15cd2bf90cad03479f1bdb0c7e8f9a2bf9d525aa962a0a",
+      "md5": "f7396973a38a28d2b2401b0704a3c1e40519aea80c0f4bd9310b02bd7ec3e3e3",
       "type": "LuaScript"
     }
   ],

@@ -2,11 +2,10 @@
 
 Shosetsu extension for reading [The Deathworlders](https://deathworlders.com/books/deathworlders/) by Philip R. Johnson (Hambone).
 
-## Setup
 
-```bash
-./dev-setup.sh
-```
+## Usage
+
+Add `https://oneautumnmango.github.io/deathworlders-extension/` as a repository in Shosetsu.
 
 ## Testing
 

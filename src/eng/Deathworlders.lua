@@ -1,4 +1,4 @@
--- {"id":1,"ver":"1.0.0","libVer":"1.0.0","author":""}
+-- {"id":1284917360,"ver":"1.0.0","libVer":"1.0.0","author":""}
 
 local baseURL = "https://deathworlders.com"
 
